@@ -10,7 +10,7 @@ function HeroDetails() {
         Build your brand's recognition and get detailed insights on how your
         links are performing.
       </p>
-      <Button className="mt-7 py-2 px-8">Get Started</Button>
+      <Button className="mt-7 py-3 px-8">Get Started</Button>
     </div>
   );
 }

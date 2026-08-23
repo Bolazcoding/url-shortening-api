@@ -29,6 +29,6 @@ body {
 
 @layer components {
   .maxWidth {
-    @apply max-w-[85%];
+    @apply max-w-[84%];
   }
 }

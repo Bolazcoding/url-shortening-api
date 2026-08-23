@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function ShortenSection() {
   return (
-    <section className="bg-primarypurple-950 p-11 rounded-2xl mt-14">
+    <section className="maxWidth mx-auto bg-primarypurple-950 p-11 rounded-2xl mt-14">
       <section>
         <form className="flex items-center gap-6">
           <input
