@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FooterLogo from "./FooterLogo";
 import { IonIcon } from "@ionic/react";
 import {
@@ -10,52 +10,52 @@ import {
 
 function FooterNavBar() {
   return (
-    <div className="maxWidth mx-auto flex gap-30">
+    <div className="maxWidth mx-auto flex gap-40 justify-center">
       <div>
         <FooterLogo />
       </div>
-      <nav className="flex items-center gap-10 text-sm text-neutralgray-400">
+      <nav className="flex justify-center gap-30 text-sm text-neutralgray-400">
         <ul className="flex flex-col gap-2.5">
           <span className="text-white font-bold pb-2.5">Features</span>
           <li>
-            <NavLink to="/shortening">Link Shortening</NavLink>
+            <Link to="/shortening">Link Shortening</Link>
           </li>
           <li>
-            <NavLink to="/branded">Branded Links</NavLink>
+            <Link to="/branded">Branded Links</Link>
           </li>
           <li>
-            <NavLink to="/analytics">Analytics</NavLink>
+            <Link to="/analytics">Analytics</Link>
           </li>
         </ul>
         <ul className="flex flex-col gap-2.5">
           <span className="text-white font-bold pb-2.5">Resources</span>
           <li>
-            <NavLink to="/shortening">Blog</NavLink>
+            <Link to="/shortening">Blog</Link>
           </li>
           <li>
-            <NavLink to="/branded">Developers</NavLink>
+            <Link to="/branded">Developers</Link>
           </li>
           <li>
-            <NavLink to="/analytics">Support</NavLink>
+            <Link to="/analytics">Support</Link>
           </li>
         </ul>
         <ul className="flex flex-col gap-2.5">
           <span className="text-white font-bold pb-2.5">Company</span>
           <li>
-            <NavLink to="/shortening">About</NavLink>
+            <Link to="/shortening">About</Link>
           </li>
           <li>
-            <NavLink to="/branded">Our Team</NavLink>
+            <Link to="/branded">Our Team</Link>
           </li>
           <li>
-            <NavLink to="/analytics">Careers</NavLink>
+            <Link to="/analytics">Careers</Link>
           </li>
           <li>
-            <NavLink to="/analytics">Contact</NavLink>
+            <Link to="/analytics">Contact</Link>
           </li>
         </ul>
       </nav>
-      <div>
+      <div className="flex gap-3.5">
         <IonIcon icon={logoFacebook} className="text-white text-3xl" />
         <IonIcon icon={logoTwitter} className="text-white text-3xl" />
         <IonIcon icon={logoPinterest} className="text-white text-3xl" />

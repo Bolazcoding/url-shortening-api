@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function HeroDetails() {
   return (
-    <div>
+    <div className="w-1/2">
       <h1 className="text-6xl font-bold text-neutralgray-900 leading-18">
         More than just shorter links
       </h1>
