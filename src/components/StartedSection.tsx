@@ -2,12 +2,12 @@ import Button from "./Button";
 
 function StartedSection() {
   return (
-    <section className="bg-primarypurple-950">
-      <div className="text-center py-14">
-        <h3 className="text-white text-3xl font-bold">
+    <section className="bg-primarypurple-950 bg-[url('/images/bg-boost-mobile.svg')] bg-cover bg-no-repeat lg:bg-[url('/images/bg-boost-desktop.svg')]">
+      <div className="py-22 text-center lg:py-14">
+        <h3 className="text-2xl font-bold text-white lg:text-3xl">
           Boost your links today
         </h3>
-        <Button className="mt-7 py-3 px-8">Get Started</Button>
+        <Button className="mt-5 px-8 py-3">Get Started</Button>
       </div>
     </section>
   );

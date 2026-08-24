@@ -10,13 +10,13 @@ import {
 
 function FooterNavBar() {
   return (
-    <div className="maxWidth mx-auto flex gap-40 justify-center">
-      <div>
+    <div className="page-container mx-auto flex flex-col items-center gap-10 text-center lg:flex-row lg:items-start lg:justify-between lg:text-left">
+      <div className="shrink-0">
         <FooterLogo />
       </div>
-      <nav className="flex justify-center gap-30 text-sm text-neutralgray-400">
+      <nav className="flex flex-col gap-9 text-sm text-neutralgray-400 sm:flex-row sm:gap-18 lg:gap-20">
         <ul className="flex flex-col gap-2.5">
-          <span className="text-white font-bold pb-2.5">Features</span>
+          <li className="pb-2.5 font-bold text-white">Features</li>
           <li>
             <Link to="/shortening">Link Shortening</Link>
           </li>
@@ -28,7 +28,7 @@ function FooterNavBar() {
           </li>
         </ul>
         <ul className="flex flex-col gap-2.5">
-          <span className="text-white font-bold pb-2.5">Resources</span>
+          <li className="pb-2.5 font-bold text-white">Resources</li>
           <li>
             <Link to="/shortening">Blog</Link>
           </li>
@@ -40,7 +40,7 @@ function FooterNavBar() {
           </li>
         </ul>
         <ul className="flex flex-col gap-2.5">
-          <span className="text-white font-bold pb-2.5">Company</span>
+          <li className="pb-2.5 font-bold text-white">Company</li>
           <li>
             <Link to="/shortening">About</Link>
           </li>
@@ -55,11 +55,11 @@ function FooterNavBar() {
           </li>
         </ul>
       </nav>
-      <div className="flex gap-3.5">
-        <IonIcon icon={logoFacebook} className="text-white text-3xl" />
-        <IonIcon icon={logoTwitter} className="text-white text-3xl" />
-        <IonIcon icon={logoPinterest} className="text-white text-3xl" />
-        <IonIcon icon={logoInstagram} className="text-white text-3xl" />
+      <div className="flex gap-5">
+        <IonIcon icon={logoFacebook} className="text-white text-2xl" />
+        <IonIcon icon={logoTwitter} className="text-white text-2xl" />
+        <IonIcon icon={logoPinterest} className="text-white text-2xl" />
+        <IonIcon icon={logoInstagram} className="text-white text-2xl" />
       </div>
     </div>
   );

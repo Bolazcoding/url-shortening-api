@@ -13,26 +13,22 @@ function StatisticsDetails({
 }: StatisticsDetailsProps) {
   return (
     <div
-      className={`max-md:items-center max-md:text-center z-10 flex flex-col items-start rounded-lg bg-white px-10 pb-14 ${
+      className={`z-10 flex w-full flex-col max-lg:items-center rounded-md bg-white px-7 pb-10 text-center lg:px-8 lg:pb-10 lg:text-left ${
         type === "start"
-          ? "self-start"
+          ? "lg:mt-0"
           : type === "center"
-            ? "self-center"
-            : "self-end"
+            ? "lg:mt-11"
+            : "lg:mt-22"
       }`}
     >
       <img
         src={img}
         alt={heading}
-        className="-mt-[3.5rem] rounded-full bg-[#3a3054] p-7 "
+        className="-mt-12 rounded-full bg-primarypurple-950 p-6 lg:self-start"
       />
 
-      <h3 className="pt-12 text-[1.4rem] font-bold text-[#34313d]">
-        {heading}
-      </h3>
-      <p className="pt-5 text-[1.1rem] font-medium leading-[2.6rem] text-[#9e9aa8]">
-        {text}
-      </p>
+      <h3 className="pt-8 text-xl font-bold text-neutralgray-900">{heading}</h3>
+      <p className="pt-4 text-sm leading-6 text-neutralgray-500">{text}</p>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import StatisticsSection from "../components/StatisticsSection";
 
 function Homepage() {
   return (
-    <div className="mt-8">
+    <div className="overflow-hidden">
       <Header />
       <HeroSection />
       <main>

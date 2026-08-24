@@ -1,12 +1,14 @@
 type Props = {
-  children: string;
-  className: string;
+  children: React.ReactNode;
+  className?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  onClick?: () => void;
 };
-function Button({ children, className, type, disabled }: Props) {
+function Button({ children, className, type, disabled, onClick }: Props) {
   return (
     <button
+      onClick={onClick}
       type={type}
       disabled={disabled}
       className={`bg-primaryblue-400 text-white font-bold rounded-4xl cursor-pointer ${className}`}

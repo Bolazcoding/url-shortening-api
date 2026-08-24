@@ -1,21 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --color-primaryblue-400: hsl(180, 66%, 49%);
-  --color-primarypurple-950: hsl(257, 27%, 26%);
-  --color-secondaryred-400: hsl(0, 87%, 67%);
-
-  --color-neutralgray-400: hsl(0, 0%, 75%);
-  --color-neutralgray-500: hsl(257, 7%, 63%);
-  --color-neutralgray-900: hsl(255, 11%, 22%);
-  --color-neutralgray-950: hsl(260, 8%, 14%);
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-}
-
 @theme {
   --color-primaryblue-400: hsl(180, 66%, 49%);
   --color-primarypurple-950: hsl(257, 27%, 26%);
@@ -27,8 +12,23 @@ body {
   --color-neutralgray-950: hsl(260, 8%, 14%);
 }
 
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: hsl(255, 11%, 22%);
+  }
+  button,
+  input {
+    font: inherit;
+  }
+}
+
 @layer components {
-  .maxWidth {
-    @apply max-w-[84%];
+  .page-container {
+    @apply mx-auto w-full max-w-[1110px] max-[1200px]:max-w-[960px] px-6 lg:px-0;
   }
 }
