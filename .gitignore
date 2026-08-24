@@ -23,7 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-*.env
+.env
+.env.*
+!.env.example
 
 design
 README-template.md 
