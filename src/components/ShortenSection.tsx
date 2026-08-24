@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 import ShortenLinks from "./ShortenLinks";
 
+const apiUrl = import.meta.env.VITE_API_URL || "";
+
 type ShortenedLinksProps = {
   longLink: string;
   shortLink: string;
@@ -48,24 +50,21 @@ function ShortenSection() {
     setLoading(true);
 
     try {
-      // const response: Response = await fetch(
-      //   "https://cleanuri.com/api/v1/shorten",
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/x-www-form-urlencoded",
-      //     },
-      //     body: new URLSearchParams({
-      //       url: url.trim(),
-      //     }),
-      //   },
-      // );
-
       // const response = await fetch(
       //   `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url.trim())}`,
       // );
 
-      const response = await fetch("/api/shorten", {
+      // const response = await fetch("/api/shorten", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     url: url.trim(),
+      //   }),
+      // });
+
+      const response = await fetch(`${apiUrl}/api/shorten`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -92,13 +91,6 @@ function ShortenSection() {
       if (!response.ok || !data.shortUrl) {
         throw new Error("Unable to shorten this URL.");
       }
-
-      // const shortUrl = data.trim();
-
-      // const newData = {
-      //   longLink: url.trim(),
-      //   shortLink: shortUrl,
-      // };
 
       const newData = {
         longLink: data.originalUrl!,
