@@ -54,16 +54,6 @@ function ShortenSection() {
       //   `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url.trim())}`,
       // );
 
-      // const response = await fetch("/api/shorten", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     url: url.trim(),
-      //   }),
-      // });
-
       const response = await fetch(`${apiUrl}/api/shorten`, {
         method: "POST",
         headers: {
@@ -74,17 +64,6 @@ function ShortenSection() {
         }),
       });
 
-      // const response = await fetch("http://localhost:5000/api/shorten", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     url: url.trim(),
-      //   }),
-      // });
-
-      // const data = await response.text();
       // const data = await response.text();
       const data: ShortenResponse = await response.json();
 
