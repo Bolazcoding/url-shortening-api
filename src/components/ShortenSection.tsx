@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import ShortenLinks from "./ShortenLinks";
 
@@ -8,8 +8,10 @@ type ShortenedLinksProps = {
 };
 
 function ShortenSection() {
+  const shortenedData = localStorage.getItem("shortenedLinks");
+
   const [shortenedLinks, setShortenedLinks] = useState<ShortenedLinksProps[]>(
-    [],
+    JSON.parse(shortenedData!) || [],
   );
 
   const [url, setUrl] = useState<string>("");
@@ -25,13 +27,11 @@ function ShortenSection() {
     setError("");
     setCopiedLink(null);
 
-    // Check if input is empty
     if (!url.trim()) {
       setError("Please enter a URL.");
       return;
     }
 
-    // Validate URL
     try {
       new URL(url.trim());
     } catch {
@@ -84,6 +84,14 @@ function ShortenSection() {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks));
+  }, [shortenedLinks]);
+
+  function handleDelete(index: number) {
+    setShortenedLinks((prevLinks) => prevLinks.filter((_, i) => i !== index));
+  }
+
   const handleCopy = async (link: string): Promise<void> => {
     if (!link) return;
 
@@ -110,12 +118,28 @@ function ShortenSection() {
           onSubmit={handleShorten}
           className="relative flex flex-col gap-4 rounded-xl bg-primarypurple-950 bg-[url('/images/bg-shorten-mobile.svg')] bg-cover bg-no-repeat p-6 lg:flex-row lg:items-start lg:gap-6 lg:bg-[url('/images/bg-shorten-desktop.svg')] lg:p-12"
         >
-          <div className="w-full"><input aria-invalid={Boolean(error)} className={`w-full rounded-md bg-white px-4 py-3 text-sm text-neutralgray-900 outline-none lg:px-6 lg:py-4 lg:text-lg ${error ? "ring-3 ring-secondaryred-400 placeholder:text-secondaryred-400" : ""}`} id="url" type="text" value={url} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value)} placeholder="Shorten a link here..." />
-          {error && <p className="mt-1 text-xs italic text-secondaryred-400 lg:text-sm">{error}</p>}</div>
+          <div className="w-full">
+            <input
+              aria-invalid={Boolean(error)}
+              className={`w-full rounded-md bg-white px-4 py-3 text-sm text-neutralgray-900 outline-none lg:px-6 lg:py-4 lg:text-lg ${error ? "ring-3 ring-secondaryred-400 placeholder:text-secondaryred-400" : ""}`}
+              id="url"
+              type="text"
+              value={url}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUrl(e.target.value)
+              }
+              placeholder="Shorten a link here..."
+            />
+            {error && (
+              <p className="mt-1 text-xs italic text-secondaryred-400 lg:text-sm">
+                {error}
+              </p>
+            )}
+          </div>
           <Button
             type="submit"
             disabled={loading}
-            className="w-full shrink-0 rounded-md py-3 text-sm lg:w-auto lg:min-w-40 lg:py-4 lg:text-lg"
+            className="bg-primaryblue-400 w-full shrink-0 rounded-md py-3 text-sm lg:w-auto lg:min-w-40 lg:py-4 lg:text-lg"
           >
             {loading ? "Shortening..." : "Shorten It!"}
           </Button>
@@ -123,14 +147,16 @@ function ShortenSection() {
 
         {shortenedLinks.length > 0 && (
           <section className="pb-10">
-            {shortenedLinks.map((link) => (
+            {shortenedLinks.map((link, index) => (
               <ShortenLinks
                 key={link.shortLink}
                 shortUrl={link.shortLink}
                 originalUrl={link.longLink}
+                index={index}
                 error={error}
                 copied={copiedLink === link.shortLink}
                 onCopyLink={handleCopy}
+                onDelete={() => handleDelete(index)}
               />
             ))}
           </section>

@@ -23,7 +23,7 @@ function NavBar() {
         <Link className="text-neutralgray-500" to="/login">
           Login
         </Link>
-        <Button className="px-6 py-2.5">Sign Up</Button>
+        <Button className="bg-primaryblue-400 px-6 py-2.5">Sign Up</Button>
       </div>
       <button
         aria-label="Toggle navigation"
@@ -51,7 +51,7 @@ function NavBar() {
             <Link onClick={() => setOpen(false)} to="/login">
               Login
             </Link>
-            <Button className="w-full py-3">Sign Up</Button>
+            <Button className="bg-primaryblue-400 w-full py-3">Sign Up</Button>
           </div>
         </nav>
       )}
