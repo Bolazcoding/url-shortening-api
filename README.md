@@ -49,6 +49,6 @@ This project tested my skills but I'm looking forward to more projects to build 
 
 ## Author
 
-- Website - [my github](https://github.com/Bolazcoding)
+- Website - [@portfolio](https://adelabu-mobolaji.vercel.app/)
 - Frontend Mentor - [@myusername](https://www.frontendmentor.io/profile/Bolazcoding)
 - Twitter - [@myusername](https://x.com/_joseDev_)
